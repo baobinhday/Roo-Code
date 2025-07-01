@@ -213,6 +213,7 @@ export interface WebviewMessage {
 	mpInstallOptions?: InstallMarketplaceItemOptions
 	config?: Record<string, any> // Add config to the payload
 	visibility?: ShareVisibility // For share visibility
+	checkOnly?: boolean // For deleteCustomMode check
 }
 
 export const checkoutDiffPayloadSchema = z.object({
