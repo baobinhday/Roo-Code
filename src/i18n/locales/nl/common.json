@@ -70,6 +70,7 @@
 		"share_auth_required": "Authenticatie vereist. Log in om taken te delen.",
 		"share_not_enabled": "Taken delen is niet ingeschakeld voor deze organisatie.",
 		"share_task_not_found": "Taak niet gevonden of toegang geweigerd.",
+		"delete_rules_folder_failed": "Kan regelmap niet verwijderen: {{rulesFolderPath}}. Fout: {{error}}",
 		"claudeCode": {
 			"processExited": "Claude Code proces beëindigd met code {{exitCode}}.",
 			"errorOutput": "Foutuitvoer: {{output}}",

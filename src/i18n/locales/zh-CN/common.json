@@ -75,6 +75,7 @@
 		"share_auth_required": "需要身份验证。请登录以分享任务。",
 		"share_not_enabled": "此组织未启用任务分享功能。",
 		"share_task_not_found": "未找到任务或访问被拒绝。",
+		"delete_rules_folder_failed": "删除规则文件夹失败: {{rulesFolderPath}}。错误: {{error}}",
 		"claudeCode": {
 			"processExited": "Claude Code 进程退出，退出码：{{exitCode}}。",
 			"errorOutput": "错误输出：{{output}}",

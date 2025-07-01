@@ -70,6 +70,7 @@
 		"share_auth_required": "Autenticazione richiesta. Accedi per condividere le attività.",
 		"share_not_enabled": "La condivisione delle attività non è abilitata per questa organizzazione.",
 		"share_task_not_found": "Attività non trovata o accesso negato.",
+		"delete_rules_folder_failed": "Impossibile eliminare la cartella delle regole: {{rulesFolderPath}}. Errore: {{error}}",
 		"claudeCode": {
 			"processExited": "Il processo Claude Code è terminato con codice {{exitCode}}.",
 			"errorOutput": "Output di errore: {{output}}",
