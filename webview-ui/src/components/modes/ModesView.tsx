@@ -396,6 +396,14 @@ const ModesView = ({ onDone }: ModesViewProps) => {
 		return () => document.removeEventListener("click", handleClickOutside)
 	}, [showConfigMenu])
 
+	// Use a ref to store the current modeToDelete value
+	const modeToDeleteRef = useRef(modeToDelete)
+
+	// Update the ref whenever modeToDelete changes
+	useEffect(() => {
+		modeToDeleteRef.current = modeToDelete
+	}, [modeToDelete])
+
 	useEffect(() => {
 		const handler = (event: MessageEvent) => {
 			const message = event.data
@@ -407,9 +415,11 @@ const ModesView = ({ onDone }: ModesViewProps) => {
 				}
 			} else if (message.type === "deleteCustomModeCheck") {
 				// Handle the check response
-				if (message.slug && modeToDelete && modeToDelete.slug === message.slug) {
+				// Use the ref to get the current modeToDelete value
+				const currentModeToDelete = modeToDeleteRef.current
+				if (message.slug && currentModeToDelete && currentModeToDelete.slug === message.slug) {
 					setModeToDelete({
-						...modeToDelete,
+						...currentModeToDelete,
 						rulesFolderPath: message.rulesFolderPath,
 					})
 					setShowDeleteConfirm(true)
@@ -419,7 +429,7 @@ const ModesView = ({ onDone }: ModesViewProps) => {
 
 		window.addEventListener("message", handler)
 		return () => window.removeEventListener("message", handler)
-	}, [modeToDelete])
+	}, []) // Empty dependency array - only register once
 
 	const handleAgentReset = (
 		modeSlug: string,
