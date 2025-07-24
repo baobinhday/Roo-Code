@@ -21,12 +21,7 @@
 	"confirmation": {
 		"reset_state": "Estàs segur que vols restablir tots els estats i emmagatzematge secret a l'extensió? Això no es pot desfer.",
 		"delete_config_profile": "Estàs segur que vols eliminar aquest perfil de configuració?",
-		"delete_custom_mode_with_rules": "Esteu segur que voleu suprimir aquest mode {scope}?\n\nAixò també suprimirà la carpeta de regles associada a:\n{rulesFolderPath}",
-		"delete_message": "Què vols eliminar?",
-		"edit_warning": "Editar aquest missatge eliminarà tots els missatges posteriors de la conversa. Vols continuar?",
-		"delete_just_this_message": "Només aquest missatge",
-		"delete_this_and_subsequent": "Aquest i tots els missatges posteriors",
-		"proceed": "Continuar"
+		"delete_custom_mode_with_rules": "Esteu segur que voleu suprimir aquest mode {scope}?\n\nAixò també suprimirà la carpeta de regles associada a:\n{rulesFolderPath}"
 	},
 	"errors": {
 		"invalid_data_uri": "Format d'URI de dades no vàlid",
@@ -37,6 +32,7 @@
 		"could_not_open_file_generic": "No s'ha pogut obrir el fitxer!",
 		"checkpoint_timeout": "S'ha esgotat el temps en intentar restaurar el punt de control.",
 		"checkpoint_failed": "Ha fallat la restauració del punt de control.",
+		"git_not_installed": "Git és necessari per a la funció de punts de control. Si us plau, instal·la Git per activar els punts de control.",
 		"no_workspace": "Si us plau, obre primer una carpeta de projecte",
 		"update_support_prompt": "Ha fallat l'actualització del missatge de suport",
 		"reset_support_prompt": "Ha fallat el restabliment del missatge de suport",
@@ -58,7 +54,7 @@
 		"cannot_access_path": "No es pot accedir a la ruta {{path}}: {{error}}",
 		"settings_import_failed": "Ha fallat la importació de la configuració: {{error}}.",
 		"mistake_limit_guidance": "Això pot indicar un error en el procés de pensament del model o la incapacitat d'utilitzar una eina correctament, que es pot mitigar amb orientació de l'usuari (p. ex. \"Prova de dividir la tasca en passos més petits\").",
-		"violated_organization_allowlist": "Ha fallat l'execució de la tasca: el perfil actual infringeix la configuració de la teva organització",
+		"violated_organization_allowlist": "Ha fallat l'execució de la tasca: el perfil actual no és compatible amb la configuració de la teva organització",
 		"condense_failed": "Ha fallat la condensació del context",
 		"condense_not_enough_messages": "No hi ha prou missatges per condensar el context",
 		"condensed_recently": "El context s'ha condensat recentment; s'omet aquest intent",
@@ -71,6 +67,7 @@
 		"url_page_not_found": "No s'ha trobat la pàgina. Comprova si la URL és correcta.",
 		"url_fetch_failed": "Error en obtenir el contingut de la URL: {{error}}",
 		"url_fetch_error_with_url": "Error en obtenir contingut per {{url}}: {{error}}",
+		"command_timeout": "L'execució de la comanda ha superat el temps d'espera de {{seconds}} segons",
 		"share_task_failed": "Ha fallat compartir la tasca. Si us plau, torna-ho a provar.",
 		"share_no_active_task": "No hi ha cap tasca activa per compartir",
 		"share_auth_required": "Es requereix autenticació. Si us plau, inicia sessió per compartir tasques.",
@@ -125,7 +122,8 @@
 	},
 	"buttons": {
 		"save": "Desar",
-		"edit": "Editar"
+		"edit": "Editar",
+		"learn_more": "Més informació"
 	},
 	"tasks": {
 		"canceled": "Error de tasca: Ha estat aturada i cancel·lada per l'usuari.",
@@ -179,6 +177,11 @@
 			"description": "Esteu segur que voleu suprimir aquest mode {{scope}}? Això també suprimirà la carpeta de regles associada a: {{rulesFolderPath}}",
 			"descriptionNoRules": "Esteu segur que voleu suprimir aquest mode personalitzat?",
 			"confirm": "Suprimeix"
+		}
+	},
+	"commands": {
+		"preventCompletionWithOpenTodos": {
+			"description": "Evitar la finalització de tasques quan hi ha todos incomplets a la llista de todos"
 		}
 	}
 }

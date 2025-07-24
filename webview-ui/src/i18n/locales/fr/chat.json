@@ -44,7 +44,7 @@
 	},
 	"save": {
 		"title": "Enregistrer",
-		"tooltip": "Sauvegarder les modifications du fichier"
+		"tooltip": "Enregistrer les modifications du message"
 	},
 	"reject": {
 		"title": "Rejeter",
@@ -123,6 +123,7 @@
 	"separator": "Séparateur",
 	"edit": "Éditer...",
 	"forNextMode": "pour le prochain mode",
+	"forPreviousMode": "pour le mode précédent",
 	"error": "Erreur",
 	"diffError": {
 		"title": "Modification échouée"
@@ -222,7 +223,10 @@
 	"autoApprove": {
 		"title": "Auto-approbation :",
 		"none": "Aucune",
-		"description": "L'auto-approbation permet à Roo Code d'effectuer des actions sans demander d'autorisation. Activez-la uniquement pour les actions auxquelles vous faites entièrement confiance. Configuration plus détaillée disponible dans les <settingsLink>Paramètres</settingsLink>."
+		"description": "L'auto-approbation permet à Roo Code d'effectuer des actions sans demander d'autorisation. Activez-la uniquement pour les actions auxquelles vous faites entièrement confiance. Configuration plus détaillée disponible dans les <settingsLink>Paramètres</settingsLink>.",
+		"selectOptionsFirst": "Sélectionnez au moins une option ci-dessous pour activer l'auto-approbation",
+		"toggleAriaLabel": "Activer/désactiver l'approbation automatique",
+		"disabledAriaLabel": "Approbation automatique désactivée - sélectionnez d'abord les options"
 	},
 	"reasoning": {
 		"thinking": "Réflexion",
@@ -281,7 +285,7 @@
 		}
 	},
 	"systemPromptWarning": "AVERTISSEMENT : Remplacement d'instructions système personnalisées actif. Cela peut gravement perturber la fonctionnalité et provoquer un comportement imprévisible.",
-	"profileViolationWarning": "Le profil actuel enfreint les paramètres de votre organisation",
+	"profileViolationWarning": "Le profil actuel n'est pas compatible avec les paramètres de votre organisation",
 	"shellIntegration": {
 		"title": "Avertissement d'exécution de commande",
 		"description": "Votre commande est exécutée sans l'intégration shell du terminal VSCode. Pour supprimer cet avertissement, vous pouvez désactiver l'intégration shell dans la section <strong>Terminal</strong> des <settingsLink>paramètres de Roo Code</settingsLink> ou résoudre les problèmes d'intégration du terminal VSCode en utilisant le lien ci-dessous.",
@@ -297,7 +301,8 @@
 	"codebaseSearch": {
 		"wantsToSearch": "Roo veut rechercher dans la base de code <code>{{query}}</code> :",
 		"wantsToSearchWithPath": "Roo veut rechercher dans la base de code <code>{{query}}</code> dans <code>{{path}}</code> :",
-		"didSearch": "{{count}} résultat(s) trouvé(s) pour <code>{{query}}</code> :",
+		"didSearch_one": "1 résultat trouvé",
+		"didSearch_other": "{{count}} résultats trouvés",
 		"resultTooltip": "Score de similarité : {{score}} (cliquer pour ouvrir le fichier)"
 	},
 	"read-batch": {
@@ -317,5 +322,13 @@
 	},
 	"versionIndicator": {
 		"ariaLabel": "Version {{version}} - Cliquez pour voir les notes de version"
+	},
+	"rooCloudCTA": {
+		"title": "Roo Code Cloud arrive bientôt !",
+		"description": "Exécutez des agents distants dans le cloud, accédez à vos tâches de n'importe où, collaborez avec d'autres et bien plus encore.",
+		"joinWaitlist": "Rejoignez la liste d'attente pour obtenir un accès anticipé."
+	},
+	"editMessage": {
+		"placeholder": "Modifiez votre message..."
 	}
 }

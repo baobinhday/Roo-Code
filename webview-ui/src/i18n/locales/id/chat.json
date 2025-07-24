@@ -45,7 +45,7 @@
 	},
 	"save": {
 		"title": "Simpan",
-		"tooltip": "Simpan perubahan file"
+		"tooltip": "Simpan perubahan pesan"
 	},
 	"tokenProgress": {
 		"availableSpace": "Ruang tersedia: {{amount}} token",
@@ -137,6 +137,7 @@
 	"separator": "Pemisah",
 	"edit": "Edit...",
 	"forNextMode": "untuk mode selanjutnya",
+	"forPreviousMode": "untuk mode sebelumnya",
 	"apiRequest": {
 		"title": "Permintaan API",
 		"failed": "Permintaan API Gagal",
@@ -208,7 +209,8 @@
 	"codebaseSearch": {
 		"wantsToSearch": "Roo ingin mencari codebase untuk <code>{{query}}</code>:",
 		"wantsToSearchWithPath": "Roo ingin mencari codebase untuk <code>{{query}}</code> di <code>{{path}}</code>:",
-		"didSearch": "Ditemukan {{count}} hasil untuk <code>{{query}}</code>:",
+		"didSearch_one": "Ditemukan 1 hasil",
+		"didSearch_other": "Ditemukan {{count}} hasil",
 		"resultTooltip": "Skor kemiripan: {{score}} (klik untuk membuka file)"
 	},
 	"commandOutput": "Output Perintah",
@@ -248,7 +250,10 @@
 	"autoApprove": {
 		"title": "Auto-approve:",
 		"none": "Tidak Ada",
-		"description": "Auto-approve memungkinkan Roo Code melakukan aksi tanpa meminta izin. Hanya aktifkan untuk aksi yang benar-benar kamu percayai. Konfigurasi lebih detail tersedia di <settingsLink>Pengaturan</settingsLink>."
+		"description": "Auto-approve memungkinkan Roo Code melakukan aksi tanpa meminta izin. Hanya aktifkan untuk aksi yang benar-benar kamu percayai. Konfigurasi lebih detail tersedia di <settingsLink>Pengaturan</settingsLink>.",
+		"selectOptionsFirst": "Pilih setidaknya satu opsi di bawah untuk mengaktifkan persetujuan otomatis",
+		"toggleAriaLabel": "Beralih persetujuan otomatis",
+		"disabledAriaLabel": "Persetujuan otomatis dinonaktifkan - pilih opsi terlebih dahulu"
 	},
 	"announcement": {
 		"title": "🎉 Roo Code {{version}} Dirilis",
@@ -301,7 +306,7 @@
 		}
 	},
 	"systemPromptWarning": "PERINGATAN: Override system prompt kustom aktif. Ini dapat merusak fungsionalitas secara serius dan menyebabkan perilaku yang tidak terduga.",
-	"profileViolationWarning": "Profil saat ini melanggar pengaturan organisasi kamu",
+	"profileViolationWarning": "Profil saat ini tidak kompatibel dengan pengaturan organisasi kamu",
 	"shellIntegration": {
 		"title": "Peringatan Eksekusi Perintah",
 		"description": "Perintah kamu dijalankan tanpa integrasi shell terminal VSCode. Untuk menekan peringatan ini kamu bisa menonaktifkan integrasi shell di bagian <strong>Terminal</strong> dari <settingsLink>pengaturan Roo Code</settingsLink> atau troubleshoot integrasi terminal VSCode menggunakan link di bawah.",
@@ -323,5 +328,13 @@
 	},
 	"versionIndicator": {
 		"ariaLabel": "Versi {{version}} - Klik untuk melihat catatan rilis"
+	},
+	"rooCloudCTA": {
+		"title": "Roo Code Cloud segera hadir!",
+		"description": "Jalankan agen jarak jauh di cloud, akses tugas Anda dari mana saja, berkolaborasi dengan orang lain, dan banyak lagi.",
+		"joinWaitlist": "Bergabunglah dengan daftar tunggu untuk mendapatkan akses awal."
+	},
+	"editMessage": {
+		"placeholder": "Edit pesan Anda..."
 	}
 }

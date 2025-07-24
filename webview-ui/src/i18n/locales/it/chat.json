@@ -44,7 +44,7 @@
 	},
 	"save": {
 		"title": "Salva",
-		"tooltip": "Salva le modifiche al file"
+		"tooltip": "Salva le modifiche del messaggio"
 	},
 	"reject": {
 		"title": "Rifiuta",
@@ -123,6 +123,7 @@
 	"separator": "Separatore",
 	"edit": "Modifica...",
 	"forNextMode": "per la prossima modalità",
+	"forPreviousMode": "per la modalità precedente",
 	"instructions": {
 		"wantsToFetch": "Roo vuole recuperare istruzioni dettagliate per aiutare con l'attività corrente"
 	},
@@ -222,7 +223,10 @@
 	"autoApprove": {
 		"title": "Auto-approvazione:",
 		"none": "Nessuna",
-		"description": "L'auto-approvazione permette a Roo Code di eseguire azioni senza chiedere permesso. Abilita solo per azioni di cui ti fidi completamente. Configurazione più dettagliata disponibile nelle <settingsLink>Impostazioni</settingsLink>."
+		"description": "L'auto-approvazione permette a Roo Code di eseguire azioni senza chiedere permesso. Abilita solo per azioni di cui ti fidi completamente. Configurazione più dettagliata disponibile nelle <settingsLink>Impostazioni</settingsLink>.",
+		"selectOptionsFirst": "Seleziona almeno un'opzione qui sotto per abilitare l'auto-approvazione",
+		"toggleAriaLabel": "Attiva/disattiva approvazione automatica",
+		"disabledAriaLabel": "Approvazione automatica disabilitata - seleziona prima le opzioni"
 	},
 	"reasoning": {
 		"thinking": "Sto pensando",
@@ -281,7 +285,7 @@
 		}
 	},
 	"systemPromptWarning": "ATTENZIONE: Sovrascrittura personalizzata delle istruzioni di sistema attiva. Questo può compromettere gravemente le funzionalità e causare comportamenti imprevedibili.",
-	"profileViolationWarning": "Il profilo corrente viola le impostazioni della tua organizzazione",
+	"profileViolationWarning": "Il profilo corrente non è compatibile con le impostazioni della tua organizzazione",
 	"shellIntegration": {
 		"title": "Avviso di esecuzione comando",
 		"description": "Il tuo comando viene eseguito senza l'integrazione shell del terminale VSCode. Per sopprimere questo avviso puoi disattivare l'integrazione shell nella sezione <strong>Terminal</strong> delle <settingsLink>impostazioni di Roo Code</settingsLink> o risolvere i problemi di integrazione del terminale VSCode utilizzando il link qui sotto.",
@@ -297,7 +301,8 @@
 	"codebaseSearch": {
 		"wantsToSearch": "Roo vuole cercare nella base di codice <code>{{query}}</code>:",
 		"wantsToSearchWithPath": "Roo vuole cercare nella base di codice <code>{{query}}</code> in <code>{{path}}</code>:",
-		"didSearch": "Trovato {{count}} risultato/i per <code>{{query}}</code>:",
+		"didSearch_one": "Trovato 1 risultato",
+		"didSearch_other": "Trovati {{count}} risultati",
 		"resultTooltip": "Punteggio di somiglianza: {{score}} (clicca per aprire il file)"
 	},
 	"read-batch": {
@@ -317,5 +322,13 @@
 	},
 	"versionIndicator": {
 		"ariaLabel": "Versione {{version}} - Clicca per visualizzare le note di rilascio"
+	},
+	"rooCloudCTA": {
+		"title": "Roo Code Cloud arriva presto!",
+		"description": "Esegui agenti remoti nel cloud, accedi alle tue attività da qualsiasi luogo, collabora con altri e molto altro.",
+		"joinWaitlist": "Unisciti alla lista d'attesa per ottenere l'accesso anticipato."
+	},
+	"editMessage": {
+		"placeholder": "Modifica il tuo messaggio..."
 	}
 }
