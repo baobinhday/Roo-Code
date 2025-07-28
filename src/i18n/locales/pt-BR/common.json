@@ -91,6 +91,11 @@
 			"badRequest": "Solicitação inválida: {{details}}",
 			"apiError": "Erro da API Gemini CLI: {{error}}",
 			"completionError": "Erro de conclusão do Gemini CLI: {{error}}"
+		},
+		"gemini": {
+			"generate_stream": "Erro de fluxo de contexto de geração do Gemini: {{error}}",
+			"generate_complete_prompt": "Erro de conclusão do Gemini: {{error}}",
+			"sources": "Fontes:"
 		}
 	},
 	"warnings": {
@@ -157,11 +162,17 @@
 			"deleteFailed": "Falha ao excluir modo personalizado: {{error}}",
 			"resetFailed": "Falha ao redefinir modos personalizados: {{error}}",
 			"modeNotFound": "Erro de escrita: Modo não encontrado",
-			"noWorkspaceForProject": "Nenhuma pasta de workspace encontrada para modo específico do projeto"
+			"noWorkspaceForProject": "Nenhuma pasta de workspace encontrada para modo específico do projeto",
+			"rulesCleanupFailed": "O modo foi excluído com sucesso, mas falhou ao excluir a pasta de regras em {{rulesFolderPath}}. Você pode precisar excluí-la manualmente."
 		},
 		"scope": {
 			"project": "projeto",
 			"global": "global"
+		}
+	},
+	"marketplace": {
+		"mode": {
+			"rulesCleanupFailed": "O modo foi removido com sucesso, mas falhou ao excluir a pasta de regras em {{rulesFolderPath}}. Você pode precisar excluí-la manualmente."
 		}
 	},
 	"mdm": {

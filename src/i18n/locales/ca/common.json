@@ -73,6 +73,7 @@
 		"share_auth_required": "Es requereix autenticació. Si us plau, inicia sessió per compartir tasques.",
 		"share_not_enabled": "La compartició de tasques no està habilitada per a aquesta organització.",
 		"share_task_not_found": "Tasca no trobada o accés denegat.",
+		"mode_import_failed": "Ha fallat la importació del mode: {{error}}",
 		"delete_rules_folder_failed": "Error en eliminar la carpeta de regles: {{rulesFolderPath}}. Error: {{error}}",
 		"claudeCode": {
 			"processExited": "El procés Claude Code ha sortit amb codi {{exitCode}}.",
@@ -81,7 +82,6 @@
 			"stoppedWithReason": "Claude Code s'ha aturat per la raó: {{reason}}",
 			"apiKeyModelPlanMismatch": "Les claus API i els plans de subscripció permeten models diferents. Assegura't que el model seleccionat estigui inclòs al teu pla."
 		},
-		"mode_import_failed": "Ha fallat la importació del mode: {{error}}",
 		"geminiCli": {
 			"oauthLoadFailed": "No s'han pogut carregar les credencials OAuth. Si us plau, autentica't primer: {{error}}",
 			"tokenRefreshFailed": "No s'ha pogut actualitzar el token OAuth: {{error}}",
@@ -91,6 +91,11 @@
 			"badRequest": "Sol·licitud incorrecta: {{details}}",
 			"apiError": "Error de l'API Gemini CLI: {{error}}",
 			"completionError": "Error de compleció de Gemini CLI: {{error}}"
+		},
+		"gemini": {
+			"generate_stream": "Error del flux de context de generació de Gemini: {{error}}",
+			"generate_complete_prompt": "Error de finalització de Gemini: {{error}}",
+			"sources": "Fonts:"
 		}
 	},
 	"warnings": {
@@ -157,11 +162,17 @@
 			"deleteFailed": "Error en eliminar el mode personalitzat: {{error}}",
 			"resetFailed": "Error en restablir els modes personalitzats: {{error}}",
 			"modeNotFound": "Error d'escriptura: Mode no trobat",
-			"noWorkspaceForProject": "No s'ha trobat cap carpeta d'espai de treball per al mode específic del projecte"
+			"noWorkspaceForProject": "No s'ha trobat cap carpeta d'espai de treball per al mode específic del projecte",
+			"rulesCleanupFailed": "El mode s'ha suprimit correctament, però no s'ha pogut suprimir la carpeta de regles a {{rulesFolderPath}}. És possible que l'hagis de suprimir manualment."
 		},
 		"scope": {
 			"project": "projecte",
 			"global": "global"
+		}
+	},
+	"marketplace": {
+		"mode": {
+			"rulesCleanupFailed": "El mode s'ha eliminat correctament, però no s'ha pogut eliminar la carpeta de regles a {{rulesFolderPath}}. És possible que l'hagis d'eliminar manualment."
 		}
 	},
 	"mdm": {

@@ -87,6 +87,11 @@
 			"badRequest": "Неверный запрос: {{details}}",
 			"apiError": "Ошибка API Gemini CLI: {{error}}",
 			"completionError": "Ошибка завершения Gemini CLI: {{error}}"
+		},
+		"gemini": {
+			"generate_stream": "Ошибка потока контекста генерации Gemini: {{error}}",
+			"generate_complete_prompt": "Ошибка завершения Gemini: {{error}}",
+			"sources": "Источники:"
 		}
 	},
 	"warnings": {
@@ -157,11 +162,17 @@
 			"deleteFailed": "Не удалось удалить пользовательский режим: {{error}}",
 			"resetFailed": "Не удалось сбросить пользовательские режимы: {{error}}",
 			"modeNotFound": "Ошибка записи: Режим не найден",
-			"noWorkspaceForProject": "Не найдена папка рабочего пространства для режима, специфичного для проекта"
+			"noWorkspaceForProject": "Не найдена папка рабочего пространства для режима, специфичного для проекта",
+			"rulesCleanupFailed": "Режим успешно удален, но не удалось удалить папку правил в {{rulesFolderPath}}. Возможно, вам придется удалить ее вручную."
 		},
 		"scope": {
 			"project": "проект",
 			"global": "глобальный"
+		}
+	},
+	"marketplace": {
+		"mode": {
+			"rulesCleanupFailed": "Режим успешно удален, но не удалось удалить папку правил в {{rulesFolderPath}}. Возможно, вам придется удалить ее вручную."
 		}
 	},
 	"mdm": {

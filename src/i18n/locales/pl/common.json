@@ -87,6 +87,11 @@
 			"badRequest": "Nieprawidłowe żądanie: {{details}}",
 			"apiError": "Błąd API Gemini CLI: {{error}}",
 			"completionError": "Błąd uzupełniania Gemini CLI: {{error}}"
+		},
+		"gemini": {
+			"generate_stream": "Błąd strumienia kontekstu generowania Gemini: {{error}}",
+			"generate_complete_prompt": "Błąd uzupełniania Gemini: {{error}}",
+			"sources": "Źródła:"
 		}
 	},
 	"warnings": {
@@ -157,11 +162,17 @@
 			"deleteFailed": "Usunięcie trybu niestandardowego nie powiodło się: {{error}}",
 			"resetFailed": "Resetowanie trybów niestandardowych nie powiodło się: {{error}}",
 			"modeNotFound": "Błąd zapisu: Tryb nie został znaleziony",
-			"noWorkspaceForProject": "Nie znaleziono folderu obszaru roboczego dla trybu specyficznego dla projektu"
+			"noWorkspaceForProject": "Nie znaleziono folderu obszaru roboczego dla trybu specyficznego dla projektu",
+			"rulesCleanupFailed": "Tryb został pomyślnie usunięty, ale nie udało się usunąć folderu reguł w {{rulesFolderPath}}. Może być konieczne ręczne usunięcie."
 		},
 		"scope": {
 			"project": "projekt",
 			"global": "globalny"
+		}
+	},
+	"marketplace": {
+		"mode": {
+			"rulesCleanupFailed": "Tryb został pomyślnie usunięty, ale nie udało się usunąć folderu reguł w {{rulesFolderPath}}. Może być konieczne ręczne usunięcie."
 		}
 	},
 	"mdm": {

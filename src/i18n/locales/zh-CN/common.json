@@ -92,6 +92,11 @@
 			"badRequest": "请求错误：{{details}}",
 			"apiError": "Gemini CLI API 错误：{{error}}",
 			"completionError": "Gemini CLI 补全错误：{{error}}"
+		},
+		"gemini": {
+			"generate_stream": "Gemini 生成上下文流错误：{{error}}",
+			"generate_complete_prompt": "Gemini 完成错误：{{error}}",
+			"sources": "来源："
 		}
 	},
 	"warnings": {
@@ -162,11 +167,17 @@
 			"deleteFailed": "删除自定义模式失败：{{error}}",
 			"resetFailed": "重置自定义模式失败：{{error}}",
 			"modeNotFound": "写入错误：未找到模式",
-			"noWorkspaceForProject": "未找到项目特定模式的工作区文件夹"
+			"noWorkspaceForProject": "未找到项目特定模式的工作区文件夹",
+			"rulesCleanupFailed": "模式删除成功，但无法删除位于 {{rulesFolderPath}} 的规则文件夹。您可能需要手动删除。"
 		},
 		"scope": {
 			"project": "项目",
 			"global": "全局"
+		}
+	},
+	"marketplace": {
+		"mode": {
+			"rulesCleanupFailed": "模式已成功移除，但无法删除位于 {{rulesFolderPath}} 的规则文件夹。您可能需要手动删除。"
 		}
 	},
 	"mdm": {

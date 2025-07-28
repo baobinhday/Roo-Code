@@ -1,4 +1,5 @@
 import * as path from "path"
+import * as vscode from "vscode"
 import os from "os"
 import crypto from "crypto"
 import EventEmitter from "events"
@@ -1229,6 +1230,7 @@ export class Task extends EventEmitter<ClineEvents> {
 			showRooIgnoredFiles = true,
 			includeDiagnosticMessages = true,
 			maxDiagnosticMessages = 50,
+			maxReadFileLine = -1,
 		} = (await this.providerRef.deref()?.getState()) ?? {}
 
 		const parsedUserContent = await processUserContentMentions({
@@ -1240,6 +1242,7 @@ export class Task extends EventEmitter<ClineEvents> {
 			showRooIgnoredFiles,
 			includeDiagnosticMessages,
 			maxDiagnosticMessages,
+			maxReadFileLine,
 		})
 
 		const environmentDetails = await getEnvironmentDetails(this, includeFileDetails)
@@ -1660,8 +1663,9 @@ export class Task extends EventEmitter<ClineEvents> {
 				rooIgnoreInstructions,
 				maxReadFileLine !== -1,
 				{
-					maxConcurrentFileReads,
-					todoListEnabled: apiConfiguration?.todoListEnabled,
+					maxConcurrentFileReads: maxConcurrentFileReads ?? 5,
+					todoListEnabled: apiConfiguration?.todoListEnabled ?? true,
+					useAgentRules: vscode.workspace.getConfiguration("roo-cline").get<boolean>("useAgentRules") ?? true,
 				},
 			)
 		})()
