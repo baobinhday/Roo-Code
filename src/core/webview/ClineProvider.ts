@@ -15,6 +15,7 @@ import {
 	type ProviderSettings,
 	type RooCodeSettings,
 	type ProviderSettingsEntry,
+	type ProviderSettingsWithId,
 	type TelemetryProperties,
 	type TelemetryPropertiesProvider,
 	type CodeActionId,
@@ -70,6 +71,7 @@ import { WebviewMessage } from "../../shared/WebviewMessage"
 import { EMBEDDING_MODEL_PROFILES } from "../../shared/embeddingModels"
 import { ProfileValidator } from "../../shared/ProfileValidator"
 import { getWorkspaceGitInfo } from "../../utils/git"
+import { forceFullModelDetailsLoad, hasLoadedFullDetails } from "../../api/providers/fetchers/lmstudio"
 
 /**
  * https://github.com/microsoft/vscode-webview-ui-toolkit-samples/blob/main/default/weather-webview/src/providers/WeatherViewProvider.ts
@@ -152,6 +154,76 @@ export class ClineProvider
 			})
 
 		this.marketplaceManager = new MarketplaceManager(this.context, this.customModesManager)
+
+		// Initialize cloud profile sync
+		this.initializeCloudProfileSync().catch((error) => {
+			this.log(`Failed to initialize cloud profile sync: ${error}`)
+		})
+	}
+
+	/**
+	 * Initialize cloud profile synchronization
+	 */
+	private async initializeCloudProfileSync() {
+		try {
+			// Check if authenticated and sync profiles
+			if (CloudService.hasInstance() && CloudService.instance.isAuthenticated()) {
+				await this.syncCloudProfiles()
+			}
+
+			// Set up listener for future updates
+			if (CloudService.hasInstance()) {
+				CloudService.instance.on("settings-updated", this.handleCloudSettingsUpdate)
+			}
+		} catch (error) {
+			this.log(`Error in initializeCloudProfileSync: ${error}`)
+		}
+	}
+
+	/**
+	 * Handle cloud settings updates
+	 */
+	private handleCloudSettingsUpdate = async () => {
+		try {
+			await this.syncCloudProfiles()
+		} catch (error) {
+			this.log(`Error handling cloud settings update: ${error}`)
+		}
+	}
+
+	/**
+	 * Synchronize cloud profiles with local profiles
+	 */
+	private async syncCloudProfiles() {
+		try {
+			const settings = CloudService.instance.getOrganizationSettings()
+			if (!settings?.providerProfiles) {
+				return
+			}
+
+			const currentApiConfigName = this.getGlobalState("currentApiConfigName")
+			const result = await this.providerSettingsManager.syncCloudProfiles(
+				settings.providerProfiles,
+				currentApiConfigName,
+			)
+
+			if (result.hasChanges) {
+				// Update list
+				await this.updateGlobalState("listApiConfigMeta", await this.providerSettingsManager.listConfig())
+
+				if (result.activeProfileChanged && result.activeProfileId) {
+					// Reload full settings for new active profile
+					const profile = await this.providerSettingsManager.getProfile({
+						id: result.activeProfileId,
+					})
+					await this.activateProviderProfile({ name: profile.name })
+				}
+
+				await this.postStateToWebview()
+			}
+		} catch (error) {
+			this.log(`Error syncing cloud profiles: ${error}`)
+		}
 	}
 
 	// Adds a new Cline instance to clineStack, marking the start of a new task.
@@ -163,11 +235,31 @@ export class ClineProvider
 		// Add this cline instance into the stack that represents the order of all the called tasks.
 		this.clineStack.push(cline)
 
+		// Perform special setup provider specific tasks
+		await this.performPreparationTasks(cline)
+
 		// Ensure getState() resolves correctly.
 		const state = await this.getState()
 
 		if (!state || typeof state.mode !== "string") {
 			throw new Error(t("common:errors.retrieve_current_mode"))
+		}
+	}
+
+	async performPreparationTasks(cline: Task) {
+		// LMStudio: we need to force model loading in order to read its context size; we do it now since we're starting a task with that model selected
+		if (cline.apiConfiguration && cline.apiConfiguration.apiProvider === "lmstudio") {
+			try {
+				if (!hasLoadedFullDetails(cline.apiConfiguration.lmStudioModelId!)) {
+					await forceFullModelDetailsLoad(
+						cline.apiConfiguration.lmStudioBaseUrl ?? "http://localhost:1234",
+						cline.apiConfiguration.lmStudioModelId!,
+					)
+				}
+			} catch (error) {
+				this.log(`Failed to load full model details for LM Studio: ${error}`)
+				vscode.window.showErrorMessage(error.message)
+			}
 		}
 	}
 
@@ -260,6 +352,11 @@ export class ClineProvider
 		}
 
 		this.clearWebviewResources()
+
+		// Clean up cloud service event listener
+		if (CloudService.hasInstance()) {
+			CloudService.instance.off("settings-updated", this.handleCloudSettingsUpdate)
+		}
 
 		while (this.disposables.length) {
 			const x = this.disposables.pop()
@@ -1446,6 +1543,7 @@ export class ClineProvider
 			alwaysAllowSubtasks,
 			alwaysAllowUpdateTodoList,
 			allowedMaxRequests,
+			allowedMaxCost,
 			autoCondenseContext,
 			autoCondenseContextPercent,
 			soundEnabled,
@@ -1541,6 +1639,7 @@ export class ClineProvider
 			alwaysAllowSubtasks: alwaysAllowSubtasks ?? false,
 			alwaysAllowUpdateTodoList: alwaysAllowUpdateTodoList ?? false,
 			allowedMaxRequests,
+			allowedMaxCost,
 			autoCondenseContext: autoCondenseContext ?? true,
 			autoCondenseContextPercent: autoCondenseContextPercent ?? 100,
 			uriScheme: vscode.env.uriScheme,
@@ -1737,6 +1836,7 @@ export class ClineProvider
 			followupAutoApproveTimeoutMs: stateValues.followupAutoApproveTimeoutMs ?? 60000,
 			diagnosticsEnabled: stateValues.diagnosticsEnabled ?? true,
 			allowedMaxRequests: stateValues.allowedMaxRequests,
+			allowedMaxCost: stateValues.allowedMaxCost,
 			autoCondenseContext: stateValues.autoCondenseContext ?? true,
 			autoCondenseContextPercent: stateValues.autoCondenseContextPercent ?? 100,
 			taskHistory: stateValues.taskHistory,
