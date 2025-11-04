@@ -12,7 +12,8 @@ export interface CodeIndexConfig {
 	openAiOptions?: ApiHandlerOptions
 	ollamaOptions?: ApiHandlerOptions
 	openAiCompatibleOptions?: { baseUrl: string; apiKey: string }
-	geminiOptions?: { apiKey: string }
+	geminiBaseUrl?: string
+	geminiOptions?: { apiKey: string; baseUrl?: string }
 	mistralOptions?: { apiKey: string }
 	vercelAiGatewayOptions?: { apiKey: string }
 	openRouterOptions?: { apiKey: string }
@@ -35,6 +36,7 @@ export type PreviousConfigSnapshot = {
 	ollamaBaseUrl?: string
 	openAiCompatibleBaseUrl?: string
 	openAiCompatibleApiKey?: string
+	geminiBaseUrl?: string
 	geminiApiKey?: string
 	mistralApiKey?: string
 	vercelAiGatewayApiKey?: string

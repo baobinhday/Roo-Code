@@ -49,6 +49,7 @@ import { useEscapeKey } from "@src/hooks/useEscapeKey"
 // Default URLs for providers
 const DEFAULT_QDRANT_URL = "http://localhost:6333"
 const DEFAULT_OLLAMA_URL = "http://localhost:11434"
+const DEFAULT_GEMINI_URL = "https://generativelanguage.googleapis.com"
 
 interface CodeIndexPopoverProps {
 	children: React.ReactNode
@@ -71,6 +72,7 @@ interface LocalCodeIndexSettings {
 	codeIndexQdrantApiKey?: string
 	codebaseIndexOpenAiCompatibleBaseUrl?: string
 	codebaseIndexOpenAiCompatibleApiKey?: string
+	codebaseIndexGeminiBaseUrl?: string
 	codebaseIndexGeminiApiKey?: string
 	codebaseIndexMistralApiKey?: string
 	codebaseIndexVercelAiGatewayApiKey?: string
@@ -127,6 +129,13 @@ const createValidationSchema = (provider: EmbedderProvider, t: any) => {
 
 		case "gemini":
 			return baseSchema.extend({
+				codebaseIndexGeminiBaseUrl: z
+					.string()
+					.optional()
+					.refine(
+						(val) => !val || z.string().url().safeParse(val).success,
+						t("settings:codeIndex.validation.invalidGeminiBaseUrl"),
+					),
 				codebaseIndexGeminiApiKey: z.string().min(1, t("settings:codeIndex.validation.geminiApiKeyRequired")),
 				codebaseIndexEmbedderModelId: z
 					.string()
@@ -239,6 +248,7 @@ export const CodeIndexPopover: React.FC<CodeIndexPopoverProps> = ({
 				codeIndexQdrantApiKey: "",
 				codebaseIndexOpenAiCompatibleBaseUrl: codebaseIndexConfig.codebaseIndexOpenAiCompatibleBaseUrl || "",
 				codebaseIndexOpenAiCompatibleApiKey: "",
+				codebaseIndexGeminiBaseUrl: codebaseIndexConfig.codebaseIndexGeminiBaseUrl || "",
 				codebaseIndexGeminiApiKey: "",
 				codebaseIndexMistralApiKey: "",
 				codebaseIndexVercelAiGatewayApiKey: "",
@@ -959,6 +969,37 @@ export const CodeIndexPopover: React.FC<CodeIndexPopoverProps> = ({
 
 									{currentSettings.codebaseIndexEmbedderProvider === "gemini" && (
 										<>
+											<div className="space-y-2">
+												<label className="text-sm font-medium">
+													{t("settings:codeIndex.geminiBaseUrlLabel")}
+												</label>
+												<VSCodeTextField
+													value={currentSettings.codebaseIndexGeminiBaseUrl || ""}
+													onInput={(e: any) =>
+														updateSetting("codebaseIndexGeminiBaseUrl", e.target.value)
+													}
+													onBlur={(e: any) => {
+														// Set default Gemini URL if field is empty
+														if (!e.target.value.trim()) {
+															e.target.value = DEFAULT_GEMINI_URL
+															updateSetting(
+																"codebaseIndexGeminiBaseUrl",
+																DEFAULT_GEMINI_URL,
+															)
+														}
+													}}
+													placeholder={t("settings:codeIndex.geminiBaseUrlPlaceholder")}
+													className={cn("w-full", {
+														"border-red-500": formErrors.codebaseIndexGeminiBaseUrl,
+													})}
+												/>
+												{formErrors.codebaseIndexGeminiBaseUrl && (
+													<p className="text-xs text-vscode-errorForeground mt-1 mb-0">
+														{formErrors.codebaseIndexGeminiBaseUrl}
+													</p>
+												)}
+											</div>
+
 											<div className="space-y-2">
 												<label className="text-sm font-medium">
 													{t("settings:codeIndex.geminiApiKeyLabel")}

@@ -236,6 +236,7 @@ export interface WebviewMessage {
 		codeIndexOpenAiKey?: string
 		codeIndexQdrantApiKey?: string
 		codebaseIndexOpenAiCompatibleApiKey?: string
+		codebaseIndexGeminiBaseUrl?: string
 		codebaseIndexGeminiApiKey?: string
 		codebaseIndexMistralApiKey?: string
 		codebaseIndexVercelAiGatewayApiKey?: string
