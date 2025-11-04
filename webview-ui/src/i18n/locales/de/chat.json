@@ -148,6 +148,9 @@
 		"initializingWarning": "Checkpoint wird noch initialisiert... Falls dies zu lange dauert, kannst du Checkpoints in den <settingsLink>Einstellungen</settingsLink> deaktivieren und deine Aufgabe neu starten.",
 		"menu": {
 			"viewDiff": "Unterschiede anzeigen",
+			"more": "Weitere Optionen",
+			"viewDiffFromInit": "Alle Änderungen anzeigen",
+			"viewDiffWithCurrent": "Änderungen seit diesem Checkpoint anzeigen",
 			"restore": "Checkpoint wiederherstellen",
 			"restoreFiles": "Dateien wiederherstellen",
 			"restoreFilesDescription": "Stellt die Dateien deines Projekts auf einen Snapshot zurück, der an diesem Punkt erstellt wurde.",
@@ -294,6 +297,19 @@
 			"selectModel": "Wähle <code>roo/code-supernova</code> vom Roo Code Cloud-Provider in den Einstellungen aus, um zu beginnen.",
 			"goToSettingsButton": "Zu den Einstellungen"
 		},
+		"release": {
+			"heading": "Neu in der Extension:",
+			"openRouterEmbeddings": "Unterstützung für OpenRouter-Embedding-Modelle",
+			"chutesDynamic": "Chutes lädt die neuesten Modelle jetzt dynamisch",
+			"queuedMessagesFix": "Behebungen für verlorene Nachrichten in der Warteschlange"
+		},
+		"cloudAgents": {
+			"heading": "Neu in der Cloud:",
+			"prFixer": "Wir stellen den <bold>PR Fixer</bold> Cloud-Agent vor, der den PR Reviewer ergänzt.",
+			"prFixerDescription": "Roo Codes PR Fixer wendet hochwertige Änderungen direkt auf deine PRs in GitHub an. Rufe ihn über einen PR-Kommentar auf und er liest den gesamten Kommentarverlauf, um Kontext, Vereinbarungen und Kompromisse zu verstehen — dann setzt er die richtige Lösung um.",
+			"tryPrFixerButton": "PR Fixer ausprobieren"
+		},
+		"careers": "Außerdem, <careersLink>wir stellen ein!</careersLink>",
 		"socialLinks": "Folge uns auf <xLink>X</xLink>, <discordLink>Discord</discordLink> oder <redditLink>r/RooCode</redditLink> 🚀"
 	},
 	"browser": {

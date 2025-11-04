@@ -148,6 +148,9 @@
 		"initializingWarning": "Đang khởi tạo điểm kiểm tra... Nếu quá trình này mất quá nhiều thời gian, bạn có thể vô hiệu hóa điểm kiểm tra trong <settingsLink>cài đặt</settingsLink> và khởi động lại tác vụ của bạn.",
 		"menu": {
 			"viewDiff": "Xem khác biệt",
+			"more": "Thêm tùy chọn",
+			"viewDiffFromInit": "Xem tất cả các thay đổi",
+			"viewDiffWithCurrent": "Xem các thay đổi kể từ điểm kiểm tra này",
 			"restore": "Khôi phục điểm kiểm tra",
 			"restoreFiles": "Khôi phục tệp",
 			"restoreFilesDescription": "Khôi phục các tệp dự án của bạn về bản chụp được thực hiện tại thời điểm này.",
@@ -295,6 +298,19 @@
 			"selectModel": "Chọn <code>roo/code-supernova</code> từ nhà cung cấp Roo Code Cloud trong Cài đặt để bắt đầu.",
 			"goToSettingsButton": "Đi tới Cài đặt"
 		},
+		"release": {
+			"heading": "Mới trong Extension:",
+			"openRouterEmbeddings": "Hỗ trợ các mô hình nhúng OpenRouter",
+			"chutesDynamic": "Chutes giờ đây tải các mô hình mới nhất một cách động",
+			"queuedMessagesFix": "Sửa lỗi tin nhắn trong hàng đợi bị mất"
+		},
+		"cloudAgents": {
+			"heading": "Mới trên Cloud:",
+			"prFixer": "Giới thiệu agent đám mây <bold>PR Fixer</bold> để bổ sung cho PR Reviewer.",
+			"prFixerDescription": "PR Fixer của Roo Code áp dụng các thay đổi chất lượng cao cho PR của bạn, ngay từ GitHub. Gọi qua bình luận PR và nó sẽ đọc toàn bộ lịch sử bình luận để hiểu ngữ cảnh, thỏa thuận và đánh đổi - sau đó triển khai bản sửa lỗi phù hợp.",
+			"tryPrFixerButton": "Dùng thử PR Fixer"
+		},
+		"careers": "Ngoài ra, <careersLink>chúng tôi đang tuyển dụng!</careersLink>",
 		"socialLinks": "Tham gia với chúng tôi trên <xLink>X</xLink>, <discordLink>Discord</discordLink>, hoặc <redditLink>r/RooCode</redditLink> 🚀"
 	},
 	"browser": {

@@ -154,6 +154,9 @@
 		"initializingWarning": "正在初始化檢查點... 如果耗時過長，您可以在<settingsLink>設定</settingsLink>中停用檢查點並重新啟動工作。",
 		"menu": {
 			"viewDiff": "檢視差異",
+			"more": "更多選項",
+			"viewDiffFromInit": "檢視所有變更",
+			"viewDiffWithCurrent": "檢視自此檢查點以來的變更",
 			"restore": "還原檢查點",
 			"restoreFiles": "還原檔案",
 			"restoreFilesDescription": "將您的專案檔案還原到此時的快照。",
@@ -304,6 +307,19 @@
 			"selectModel": "在設定中從 Roo Code Cloud 提供商選擇 <code>roo/code-supernova</code> 開始使用。",
 			"goToSettingsButton": "前往設定"
 		},
+		"release": {
+			"heading": "擴充功能的新功能：",
+			"openRouterEmbeddings": "支援 OpenRouter 嵌入模型",
+			"chutesDynamic": "Chutes 現在動態載入最新模型",
+			"queuedMessagesFix": "修復佇列訊息遺失問題"
+		},
+		"cloudAgents": {
+			"heading": "雲端的新功能：",
+			"prFixer": "推出 <bold>PR Fixer</bold> 雲端代理以補充 PR Reviewer。",
+			"prFixerDescription": "Roo Code 的 PR Fixer 直接從 GitHub 為您的 PR 套用高品質變更。透過 PR 留言呼叫，它會讀取整個留言歷史以理解內容、協議和權衡 - 然後實作正確的修復。",
+			"tryPrFixerButton": "試用 PR Fixer"
+		},
+		"careers": "此外，<careersLink>我們正在招募！</careersLink>",
 		"socialLinks": "在 <xLink>X</xLink>、<discordLink>Discord</discordLink> 或 <redditLink>r/RooCode</redditLink> 上關注我們 🚀"
 	},
 	"reasoning": {
