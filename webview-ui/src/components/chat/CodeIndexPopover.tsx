@@ -970,9 +970,7 @@ export const CodeIndexPopover: React.FC<CodeIndexPopoverProps> = ({
 									{currentSettings.codebaseIndexEmbedderProvider === "gemini" && (
 										<>
 											<div className="space-y-2">
-												<label className="text-sm font-medium">
-													{t("settings:codeIndex.geminiBaseUrlLabel")}
-												</label>
+												<label className="text-sm font-medium">{"Base Url"}</label>
 												<VSCodeTextField
 													value={currentSettings.codebaseIndexGeminiBaseUrl || ""}
 													onInput={(e: any) =>
