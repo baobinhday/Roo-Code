@@ -970,7 +970,7 @@ export const CodeIndexPopover: React.FC<CodeIndexPopoverProps> = ({
 									{currentSettings.codebaseIndexEmbedderProvider === "gemini" && (
 										<>
 											<div className="space-y-2">
-												<label className="text-sm font-medium">{"Base Url"}</label>
+												<label className="text-sm font-medium">Base Url</label>
 												<VSCodeTextField
 													value={currentSettings.codebaseIndexGeminiBaseUrl || ""}
 													onInput={(e: any) =>
@@ -986,7 +986,7 @@ export const CodeIndexPopover: React.FC<CodeIndexPopoverProps> = ({
 															)
 														}
 													}}
-													placeholder={t("settings:codeIndex.geminiBaseUrlPlaceholder")}
+													placeholder="Place proxy URL here"
 													className={cn("w-full", {
 														"border-red-500": formErrors.codebaseIndexGeminiBaseUrl,
 													})}
