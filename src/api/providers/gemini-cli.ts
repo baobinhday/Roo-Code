@@ -10,7 +10,7 @@ import { type ModelInfo, type GeminiCliModelId, geminiCliDefaultModelId, geminiC
 import type { ApiHandlerOptions } from "../../shared/api"
 import { t } from "../../i18n"
 
-import { convertAnthropicContentToGemini, convertAnthropicMessageToGemini } from "../transform/gemini-format"
+import { convertAnthropicMessageToGemini } from "../transform/gemini-format"
 import type { ApiStream } from "../transform/stream"
 import { getModelParams } from "../transform/model-params"
 
@@ -238,7 +238,7 @@ export class GeminiCliHandler extends BaseProvider implements SingleCompletionHa
 		const { id: model, info, reasoning: thinkingConfig, maxTokens } = this.getModel()
 
 		// Convert messages to Gemini format
-		const contents = messages.map(convertAnthropicMessageToGemini)
+		const contents = messages.map((message) => convertAnthropicMessageToGemini(message))
 
 		// Prepare request body for Code Assist API - matching Cline's structure
 		const requestBody: any = {

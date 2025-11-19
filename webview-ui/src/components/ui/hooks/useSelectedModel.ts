@@ -11,7 +11,6 @@ import {
 	geminiModels,
 	geminiCliDefaultModelId,
 	geminiCliModels,
-	mistralDefaultModelId,
 	mistralModels,
 	openAiModelInfoSaneDefaults,
 	openAiNativeModels,
